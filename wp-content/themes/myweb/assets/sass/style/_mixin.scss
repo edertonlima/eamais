@@ -80,6 +80,26 @@
 	-o-transition: all $valueIni ease $valueEnd;
 }
 
+@mixin animacao_slow() {
+	$value1: 0.9;
+	$value2: 0;
+	$valueIni: $value1+s;
+	$valueEnd: $value2+s;
+	-moz-transition: all $valueIni ease $valueEnd;
+	-webkit-transition: all $valueIni ease $valueEnd;
+	-o-transition: all $valueIni ease $valueEnd;
+}
+
+@mixin animacao_hard_slow() {
+	$value1: 1.5;
+	$value2: 0;
+	$valueIni: $value1+s;
+	$valueEnd: $value2+s;
+	-moz-transition: all $valueIni ease $valueEnd;
+	-webkit-transition: all $valueIni ease $valueEnd;
+	-o-transition: all $valueIni ease $valueEnd;
+}
+
 @mixin animacao-off() {
 	-moz-transition: none;
 	-webkit-transition: none;   

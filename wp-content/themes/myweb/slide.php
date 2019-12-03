@@ -1,3 +1,38 @@
+
+<?php
+
+if( have_rows('slide-principal') ): 
+	$slide_count = count(get_field('slide-principal')); ?>
+
+	<div class="owl-carousel slide-principal carousel-itens-produtos owl-theme owl-loaded">
+
+	 	<?php
+	    while ( have_rows('slide-principal') ) : the_row();
+
+	        $slide_elem = $slide_elem+1;
+	        $img_slide = wp_get_attachment_image_src( get_sub_field('imagem'), 'image-slide' );
+	        //$img_slide = wp_get_attachment_image_src( get_post_thumbnail_id(get_sub_field('imagem')), 'image-slide' ); 
+
+	        //var_dump($img_slide);
+	        	
+	        ?>
+	        <div class="item-slide" style="background-image: url('<?php echo $img_slide[0] ?>');"></div>
+
+	    <?php endwhile; ?>
+
+	</div>
+
+<?php 
+else :
+
+    // no rows found
+
+endif;
+
+/* ?>
+
+</div>
+
 <div class="slide">
 
 	<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="8000">
@@ -80,3 +115,5 @@
 	</div>
 
 </div>
+
+*/ ?>

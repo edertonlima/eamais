@@ -1,3 +1,4 @@
+
 <?php get_header(); ?>
 
 <!-- slide --> 
@@ -5,7 +6,7 @@
 	<?php include 'slide.php'; ?>
 </section>
 
-<?php
+<?php /*
 	$receitas_list = array(
 			'posts_per_page' => 10,
 			'post_type' => 'receitas'
@@ -40,9 +41,10 @@
 			</div>
 		</section>
 
-	<?php }
+	<?php }*/
 ?>
 
+<?php /*
 <section class="box-content list-linha-prod">
 	<?php $imagem_produtos = get_field('imagem_bloco_principal_produtos','option'); ?>
 
@@ -170,6 +172,7 @@
 	</div>
 </section>
 
+*/ ?>
 
 <?php get_footer(); ?>
 
@@ -177,6 +180,28 @@
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 
 <script type="text/javascript">
+
+	$('.slide-principal').owlCarousel({
+		loop:true,
+		margin:0,
+		responsiveClass:true,
+		autoplayHoverPause:false,
+		autoplaySpeed:3000,
+		fluidSpeed:1000,
+		nav:true,
+		autoplay:true,
+		autoplayTimeout: 8000,
+		navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+		//rtl:true,
+		responsive:{
+			0:{
+				items:1,
+				nav:true
+			}
+		}
+	})
+
+/*
 	$('.carousel-itens').owlCarousel({
 		loop:true,
 		margin:40,
@@ -224,4 +249,5 @@
 			}
 		}
 	})
+	*/
 </script>

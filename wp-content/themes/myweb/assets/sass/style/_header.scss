@@ -1,30 +1,13 @@
 .header {
+	padding: 0 30px;
 	width: 100%;
-	//height: 100px;
-	margin: 0px 0 20px 0;
 	position: relative;
 	z-index: 999;
 	@include animacao;
 	@include box-sizing;
 
-	&:before, &:after {
-		content: "";
-		height: 60px;
-		width: 50%;
-		z-index: 0;
-		bottom: 0px;
-		position: absolute;
-		//@include animacao;
-	}
-
-	&:after {
-		left: 0;
-		background-color: #ffffff;
-	}
-
-	&:before {
-		right: 0;
-		background-color: $cor1;
+	h1 {
+		float: left;
 	}
 
 	&.scroll_menu {

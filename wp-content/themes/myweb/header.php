@@ -91,6 +91,8 @@
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" media="screen" />
 
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/fancybox/jquery.fancybox.min.css" media="screen" />
+
 <!-- ZOPIM -->
 <!--Start of Zendesk Chat Script-->
 <script type="text/javascript">/*
@@ -117,7 +119,13 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 	<header class="header">
 		<div class="container">
 
-			<?php get_template_part( 'nav-topo' ); ?>
+			<h1>
+				<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
+					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/eamais.png" alt="<?php //the_field('titulo', 'option'); ?>">
+				</a>
+			</h1>
+
+			<?php //get_template_part( 'nav-topo' ); ?>
 			<?php get_template_part( 'nav-principal' ); ?>
 
 		</div>

@@ -25,7 +25,7 @@ add_theme_support( 'post-thumbnails' );
 add_action( 'init', 'my_custom_init' );
 function my_custom_init() {
 	remove_post_type_support( 'post', 'editor' );
-	//remove_post_type_support('page', 'editor');
+	remove_post_type_support('page', 'editor');
 	//remove_post_type_support( 'page', 'thumbnail' );
 }
 
@@ -71,9 +71,9 @@ function gera_url_encurtada($url){
 // SIZE IMAGES MIDIA
 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
-    add_image_size( 'detalhe-post-page', 1440, 680, true ); // (cropped)
-    add_image_size( 'wide', 1440, 460, true ); // (cropped)
-    add_image_size( 'list-receita-produto', 680, 480, true ); // (cropped)
+    add_image_size( 'image-slide', 1440, 900, true ); // (cropped)
+    //add_image_size( 'wide', 1440, 460, true ); // (cropped)
+    //add_image_size( 'list-receita-produto', 680, 480, true ); // (cropped)
     //add_image_size( 'mini-post', 415, 245, true ); // (cropped)
 }
 

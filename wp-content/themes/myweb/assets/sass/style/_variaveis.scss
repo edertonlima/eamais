@@ -1,16 +1,17 @@
-$width: 1280px;
-$padding-container: 40px;
+$width: 1260px;
+$padding-container: 30px;
 $padding-col: 30px;
 $padding-mini-col: 10px;
 
 $font-size: 1.125rem;
 
-$cor-txt: #4a4a4a;
+$cor-txt: #6a6d73;
+$cor-txt-bold: #4a4a4a;
 
 /* CORES */
-$cor1: #cf0a2c; // VERMELHO
+$cor1: #fcd22d; // AMARELO
 $cor2: #003d72; // AZUL
-$cor3: #f6b221; // AMARELO
+$cor3: #cf0a2c; // VERMELHO
 $cor4: #996633; // BEGE
 $cor5: #881d23; // BORDÔ
 $cor6: #417505; // VERDE
@@ -54,4 +55,4 @@ $extra-bold: 900;
 
 
 // slide
-$hSlide: calc(100vh - 170px);
+$hSlide: 100vh;
