@@ -1,13 +1,8 @@
 <?php get_header(); ?>
 
-<!-- slide --> 
 <section class="box-content"> 
 	<div class="container">
 		<?php include 'nav-categoria.php'; ?>
-	</div>
-</section>
-
-	<div class="container">
 		
 		<div class="grid">
 

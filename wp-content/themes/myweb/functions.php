@@ -72,7 +72,7 @@ function gera_url_encurtada($url){
 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
     add_image_size( 'image-slide', 1440, 900, true ); // (cropped)
-    //add_image_size( 'wide', 1440, 460, true ); // (cropped)
+    add_image_size( 'list-news', 400, 400, true ); // (cropped)
     //add_image_size( 'list-receita-produto', 680, 480, true ); // (cropped)
     //add_image_size( 'mini-post', 415, 245, true ); // (cropped)
 }
@@ -215,7 +215,7 @@ function post_type_news() {
 	    'hierarchical' => false,
 	    'menu_position' => null,
 	    'menu_icon' => 'dashicons-businessperson',
-	    'supports' => array('title','excerpt')
+	    'supports' => array('title','excerpt','thumbnail')
 	  );
 
     register_post_type( 'news', $args );

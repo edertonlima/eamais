@@ -117,8 +117,14 @@ body * {
 		}
 
 		.item-conteudo {
+			width: 100%;
 			float: left;
-			margin-top: 60px; 
+			margin-top: 60px;
+			@include box-sizing;
+
+			&:first-child {
+				margin-top: 0;
+			}
 
 			&:last-child {
 				margin-bottom: 0px;
@@ -159,6 +165,7 @@ body * {
 						}
 
 						h3 {
+							text-align: left;
 							padding-top: 13px;
 						}
 
@@ -210,8 +217,12 @@ body * {
 			&.right {
 				padding-left: 20%;
 
-				p, h2 {
+				p {
 					text-align: left;
+				}
+
+				h2 {
+					text-align: right;
 				}
 
 				&.cont-imagem {

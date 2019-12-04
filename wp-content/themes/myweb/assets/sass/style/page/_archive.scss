@@ -1,4 +1,4 @@
-	.grid {
+.grid {
 	//width: 100%;
 	//margin: 0 auto;
 	@include clear;
@@ -43,19 +43,24 @@
 			width: 80%;
 			height: 10px;
 		}
+	}
 
+	.grid-item {
 		&:hover {
-			margin: 0 0 10px 10px;
+			.cont-mask {
+				margin: 0 0 10px 10px;
 
-			&:before, &:after {
-				opacity: 1;
-			}
-
-			.mask-hover {
-				opacity: 1;
-
-				h2, i {
+				&:before, &:after {
 					opacity: 1;
+				}
+
+				.mask-hover {
+					opacity: 1;
+					margin-bottom: 10px; 
+
+					h2, i {
+						opacity: 1;
+					}
 				}
 			}
 		}
@@ -100,6 +105,38 @@
 			top: 50%;
 			left: 50%;
 			margin: -42px 0 0 -48px;
+		}
+	}
+
+	&.news {
+		margin: 0;
+
+		.grid-item {
+			padding-right: 20px;
+			padding-left: 20px;
+			float: left;
+			width: 33.333%;
+			margin: 0;
+
+			.mask-hover {
+				i {
+					font-size: 4rem;
+					margin: -28px 0 0 -32px;
+				}
+			}
+
+			.date-news, h4 {
+				display: block;
+				padding: 20px 20px 0;
+			}
+
+			.date-news {
+				font-weight: 1rem;
+			}
+
+			h4 {
+				padding: 0px 20px 20px;
+			}
 		}
 	}
 }

@@ -1,8 +1,6 @@
 
-	<footer class="footer">
+	<footer class="footer <?php if(is_page('contato')){ echo 'footer-page-contato'; } ?>">
 		<div class="container">
-
-			<p class="copy">Todos os direitos reservados <?php echo date('Y'); ?></p>
 
 			<?php
 
@@ -29,6 +27,9 @@
 				endif;
 
 			?>
+
+			<p class="copy">Todos os direitos reservados <?php echo date('Y'); ?></p>
+
 		</div>
 
 		<i class="far fa-caret-square-up" id="gotop"></i>
@@ -66,17 +67,19 @@
 
 		});
 
-
+*/
 		$(window).scroll(function(){
 			scroll_body = $(window).scrollTop();
-			if(scroll_body > 10){
-				$('body').addClass('scroll_body');
-				$('.header').addClass('scroll_menu');
+			if(scroll_body > 200){
+				$('#gotop').addClass('on');
+				//$('body').addClass('scroll_body');
+				//$('.header').addClass('scroll_menu');
 			}else{
-				$('body').removeClass('scroll_body');
-				$('.header').removeClass('scroll_menu');
+				$('#gotop').removeClass('on');
+				//$('body').removeClass('scroll_body');
+				//$('.header').removeClass('scroll_menu');
 			}
-		});*/
+		});
 	</script>
 
 </body>

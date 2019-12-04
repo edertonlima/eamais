@@ -1,92 +1,85 @@
 <?php get_header(); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+	<?php while ( have_posts() ) : the_post(); 
 
-		<section class="box-content no-padding-top">			
-			<div class="bloco-img grande title-bottom" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img-tit-contato.jpg');">
-				<h2 class="center bg-cor5">CONTATO</h2>
-			</div>
+		$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'list-receita-produto' ); ?>
 
-			<div class="container">	
-				<div class="breadcrumbs">
-					<ul>
-						<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
-						<li>Contato</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="container container-mobile">
-				<h3 class="mobile-750px-hide center">Dúvidas ou sugestões, entre em <strong class="cor5">CONTATO</strong> preenchendo esse formulário, ou fale conosco via telefone ou e-mail.</h3>
-				<h3 class="mobile-750px-show center">Dúvidas ou sugestões, entre em contato:</h3>
-
-				<div class="content form">
-					<form class="fale-conosco">
-						<div class="row">
-							<div class="col-6 esq">
-								<fieldset>
-									<input type="text" name="" placeholder="NOME">
-								</fieldset>
-
-								<fieldset>
-									<input type="text" name="" placeholder="TELEFONE">
-								</fieldset>
-
-								<fieldset>
-									<input type="text" name="" placeholder="E-MAIL">
-								</fieldset>
-
-								<fieldset>
-									<input type="text" name="" placeholder="ASSUNTO">
-								</fieldset>
-							</div>
-
-							<div class="col-6 dir">
-								<fieldset>
-									<textarea name="" placeholder="MENSAGEM"></textarea>
-								</fieldset>
-								<fieldset>
-									<button class="enviar">ENVIAR</button>
-								</fieldset>
-							</div>
+		<section class="box-content page-contato">
+			<div class="container">
+				
+				<div class="row">
+					<div class="col-12">
+						<div class="img-single">
+							<a href="<?php echo $imagem[0]; ?>" class="galeria_fotos" data-fancybox="projeto_galeria">
+								<img src="<?php echo $imagem[0]; ?>">
+							</a>
 						</div>
-					</form>
+					</div>
+
+					<div class="col-m-1 col-5">
+						<h2 class="left">ENDEREÇO</h2>
+						<p class="info-contato">Dom Jaime Câmera 77, 9 andar<br>
+						<strong>Florianópolis</strong> | Santa Catarina | Brasil</p>
+					</div>			
+					<div class="col-5">
+						<h2 class="right">CONTATO</h2>
+						<div class="info-contato info-tel">
+							<i class="fab fa-whatsapp"></i>
+							<span>(48) 99963.1065</span>
+							<span>55 (48) 3223.9049</span>
+						</div>
+
+						<div class="info-contato info-email">
+							<a href="mailto:eamais@eamais.net" title="eamais@eamais.net">eamais@eamais.net</a>
+							<a href="mailto:adm@eamais.net" title="mailto:adm@eamais.net">mailto:adm@eamais.net</a>
+						</div>
+					</div>
+
+					<div class="col-m-3 col-6">
+						<h2 class="center uppercase sub-title"><?php the_title(); ?></h2>
+						<p class="center sub-title">Para mais informações, entre <br> em contato</p>
+
+						<form action="javascript:" method="post">
+							<fieldset>
+								<input type="text" name="nome" placeholder="Nome">
+							</fieldset>
+							<fieldset>
+								<input type="text" name="email" placeholder="E-mail">
+							</fieldset>
+							<fieldset>
+								<input type="text" name="telefone" id="telefone" placeholder="Telefone">
+							</fieldset>
+							<fieldset>
+								<input type="text" name="assunto" placeholder="Assunto">
+							</fieldset>
+							<fieldset>
+								<textarea name="mensagem" placeholder="Mensagem"></textarea>
+							</fieldset>
+							<fieldset>
+								<p class="msg-form right"></p><br>
+								<button class="enviar">Enviar</button>
+							</fieldset>
+						</form>
+					</div>
 				</div>
 
-			</div>
-
-			<div class="contato-info">
-				<div class="container">
-						<div class="item-contato-info">
-							<div class="ico-contato">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contato-1.jpg">
-							</div>
-							<div class="txt-contato">
-								<a href="emailto:<?php the_field('email','options'); ?>"><?php the_field('email','options'); ?></a>
-							</div>
-						</div>	
-						<div class="item-contato-info">
-							<div class="ico-contato"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contato-2.jpg"></div>
-							<div class="txt-contato">
-								<span>
-									<?php the_field('whatsapp','options'); ?>
-									<?php if(get_field('whatsapp','options') and get_field('telefone','options')){ ?>
-										<br>
-									<?php } ?>
-									<?php the_field('telefone','options'); ?>
-								</span>
-							</div>
-						</div>	
-						<div class="item-contato-info">
-							<div class="ico-contato"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contato-3.jpg"></div>
-							<div class="txt-contato">
-								<span><?php the_field('sac','options'); ?>6</span>
-							</div>
-						</div>	
-				</div>
 			</div>
 		</section>
 
 	<?php endwhile; ?>
 
 <?php get_footer(); ?>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+
+	});
+</script>
+
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/maskedinput.js"></script>
+<script type="text/javascript">
+	jQuery(function(jQuery){
+	   jQuery("#telefone").mask("(99) 9999-9999?9");
+	});
+</script>

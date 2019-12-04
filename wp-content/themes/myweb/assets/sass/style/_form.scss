@@ -1,5 +1,6 @@
 form {
 	width: 100%;
+	padding: 0 20px;
 	@include box-sizing;
 	@include clear();
 
@@ -15,33 +16,31 @@ form {
 	input, textarea {
 		max-width: 100%;
 		width: 100%;
-		font-size: 1.125rem; 
-		text-transform: uppercase;
-		color: #ffffff;
-		font-weight: $light;
-		background-color: $cor5;
-		padding: 0 20px;
-		border-radius: 7px;
+		font-size: 1rem; 
+		color: $cor-txt;
+		font-weight: $regular;
+		padding: 0px;
 		font-style: normal;
+		border-bottom: 2px solid $cor-txt;
 		@include animacao;
 		@include box-sizing;
 
 		@include placeholder{
 			opacity: 1;
-			color: #ffffff;
+			color: $cor-txt;
 		}
 	}
 
 	input[type='text'], input[type='email'], input[type='password'] {
-		height: 60px;
-		line-height: 60px;	
+		height: 40px;
+		line-height: 40px;	
 	}
 
 	textarea {
 		line-height: 1.25rem;
 		padding-top: 20px;
 		padding-bottom: 20px;
-		height: 363px;
+		height: 160px;
 		resize: none;
 	}
 
@@ -55,74 +54,6 @@ form {
 			margin-top: 0;
 		}
 	}
-
-	/*&.form-busca {
-		fieldset {
-			padding-right: 50px!important;
-			position: relative;
-			margin: 0;
-			@include box-sizing;
-
-			input {
-				height: 40px;
-				line-height: 40px;
-				color: #ffffff;
-				background-color: $cor1;
-				border: none;
-
-				@include placeholder{
-					//opacity: 0.75;
-					color: #ffffff;
-				}
-			}
-
-			button {
-				width: 40px;
-				height: 40px;
-				line-height: 46px;
-				text-align: center;
-				position: absolute;
-				right: 0;
-				top: 0;
-				padding: 0;
-				background-color: transparent;
-
-				i {
-					font-size: 2rem;
-					color: $cor1;
-				}
-
-				&:hover {
-					i {
-						color: $cor2;
-					}
-				}
-			}
-		}
-	}*/
-
-	&.fale-conosco {
-		.row [class*="col-"] {
-			&.esq {
-				padding-right: 60px;
-			}
-
-			&.dir {
-				padding-left: 60px;
-			}
-		}
-		/*max-width: 500px;
-		margin-top: 20px;
-
-		label {
-			font-size: 1.125rem;
-			line-height: 1.5rem;
-		}
-
-		textarea {
-			height: 115px;
-		}*/
-	}
 }
 
 /* hover style just for information */
@@ -131,19 +62,14 @@ label:hover:before {
 }
 
 button, input[type='submit'], .button { 
-	display: inline-block;
 	width: auto;
-	height: 54px;
-	line-height: 48px;
-	color: #ffffff;
-	font-weight: $bold;
-	font-size: 1.125rem; 
-	text-transform: uppercase;
-	text-align: center;
-	padding: 0 40px;
-	border-radius: 10px;
+	height: 30px;
+	line-height: 30px;
+	color: $cor-txt;
+	font-weight: $regular;
+	font-size: 1rem; 
+	padding: 0px;
 	cursor: pointer;
-	border: 3px solid;
 	background-color: transparent;
 	@include animacao;
 	@include box-sizing();
@@ -153,8 +79,8 @@ button, input[type='submit'], .button {
 	}
 
 	&:hover {
-		background-color: #ffffff;
-		color: #ffffff;
+		color: $cor-txt-bold;
+		font-weight: $bold;
 	}
 
 	&.grande {
@@ -185,13 +111,6 @@ button, input[type='submit'], .button {
 
 	&.enviar {
 		float: right;
-		color: $cor5; 
-		border-color: $cor5; 
-
-		&:hover {
-			color: #ffffff;
-			background-color: $cor5;
-		}
 	}
 }
 

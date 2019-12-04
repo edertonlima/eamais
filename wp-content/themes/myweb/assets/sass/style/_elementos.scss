@@ -36,14 +36,14 @@ h1 {
 
 h2 {
 	display: block;
-	margin: 50px auto 20px;
+	margin: 50px 0 20px;
 	font-size: 2.25rem;
 	line-height: 80px;
 	height: 80px;
 	font-weight: $bold;
 	display: block;
 	color: $cor-txt-bold;
-	width: 80%;
+	width: 100%;
 	text-align: center;
 	vertical-align: middle;
 	z-index: 10;
@@ -60,6 +60,12 @@ h2 {
 		position: relative;
 		top: -5px;
 		font-weight: $bold;
+	}
+
+	&.sub-title {
+		line-height: 2.5rem;
+		margin-bottom: 0;
+		height: auto;
 	}
 
 	&.title-mini {
@@ -90,9 +96,8 @@ h2 {
 		}
 	}
 
-	&.title-solo-bottom {
-		margin-top: -40px;
-		position: relative;
+	&.uppercase {
+		text-transform: uppercase;
 	}
 }
 
@@ -105,9 +110,9 @@ h3 {
 }
 
 h4 {
-	font-weight: $bold;
-	font-size: 1.125rem;
-	line-height: 1.125rem+.25;
+	font-weight: $regular;
+	font-size: 1.5rem;
+	line-height: 1.875rem+.25;
 	color: $cor-txt;
 }
 
@@ -136,6 +141,13 @@ p {
 		&.regular {
 			font-weight: $regular;
 		}
+	}
+
+	&.sub-title {
+		margin: 15px 0 40px;
+		font-weight: $light;
+		line-height: 1rem;
+		display: block;
 	}
 
 	&:first-child {
@@ -225,6 +237,7 @@ p {
 
 .right {
 	float: right;
+	text-align: right;
 }
 
 .no-margim {

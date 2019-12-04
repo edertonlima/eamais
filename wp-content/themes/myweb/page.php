@@ -60,26 +60,26 @@
 
 										<?php elseif( get_row_layout() == 'listagem' ): ?>
 											<div class="item-conteudo cont-list <?php the_sub_field('align_listagem_conteudo'); ?>">
-								<?php
+												<?php
 
-								if( have_rows('listagem_conteudo') ): ?>
-									<ul class="listagem_conteudo">
-										<?php while ( have_rows('listagem_conteudo') ) : the_row(); ?>
+												if( have_rows('listagem_conteudo') ): ?>
+													<ul class="listagem_conteudo">
+														<?php while ( have_rows('listagem_conteudo') ) : the_row(); ?>
 
-											<li>
+															<li>
 
-												<i class="fas fa-plus"></i>
-												<h3><?php the_sub_field('titulo'); ?></h3> 
-												
-												<p><?php the_sub_field('texto'); ?></p>
+																<i class="fas fa-plus"></i>
+																<h3><?php the_sub_field('titulo'); ?></h3> 
+																
+																<p><?php the_sub_field('texto'); ?></p>
 
-											</li>
+															</li>
 
-										<?php endwhile; ?>
-									</ul>
-								<?php endif;
+														<?php endwhile; ?>
+													</ul>
+												<?php endif;
 
-								?>
+												?>
 
 											</div>
 
@@ -87,23 +87,6 @@
 
 									<?php endwhile;
 							endif; ?>
-
-							<?php /*<div class="item-conteudo">
-								<?php
-
-								if( have_rows('itens_info_projetos') ):
-									while ( have_rows('itens_info_projetos') ) : the_row(); ?>
-
-										<p class="margin-mini">
-											<strong class=""><?php the_sub_field('titulo'); ?></strong> 
-											<?php the_sub_field('descricao'); ?>
-										</p>
-
-									<?php endwhile;
-								endif;
-
-								?>
-							</div> */?>
 
 						</div>
 

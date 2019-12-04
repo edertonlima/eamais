@@ -1,0 +1,33 @@
+.page-contato {
+	.info-contato {
+		&.info-tel {
+			text-align: right;
+			i {
+				color: $cor1;
+				font-size: 3rem;
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			span {
+				display: inline-block;
+				padding: 2px;
+				margin-left: 20px;
+				font-weight: $bold;
+			}
+		}
+
+		&.info-email {
+			margin-top: -15px;
+			
+			a {
+				float: right;
+				@include clear;
+
+				&:hover {
+					color: $cor-txt-bold;
+				}
+			}
+		}
+	}
+}
