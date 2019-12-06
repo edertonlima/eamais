@@ -50,7 +50,18 @@ function register_menu() {
 
 /* ADICIONA CLASSE */
 add_filter( 'body_class', function( $classes ) {
-    return array_merge( $classes, array( 'page' ) );
+    
+    $page_class = array( 'page' );
+
+    if(is_page('contato')){
+		$page_class = array( 'page-contato' );    	
+    }
+
+    if(is_singular('post')){
+		$page_class = array( 'det-projetos' );    	
+    }
+
+    return array_merge( $classes, $page_class );
 } );
 
 
@@ -73,6 +84,7 @@ add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
     add_image_size( 'image-slide', 1440, 900, true ); // (cropped)
     add_image_size( 'list-news', 400, 400, true ); // (cropped)
+    add_image_size( 'list', 300, 200, true ); // (cropped)
     //add_image_size( 'list-receita-produto', 680, 480, true ); // (cropped)
     //add_image_size( 'mini-post', 415, 245, true ); // (cropped)
 }

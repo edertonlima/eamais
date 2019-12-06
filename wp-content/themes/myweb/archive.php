@@ -3,7 +3,7 @@
 <section class="box-content"> 
 	<div class="container">
 		
-		<div class="grid news">
+		<div class="grid news clean">
 
 				<?php
 					while ( have_posts() ) : the_post();

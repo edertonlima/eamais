@@ -152,6 +152,7 @@ body * {
 				.listagem_conteudo {
 					li {
 						margin-top: 30px;
+						padding: 0 15px;
 
 						i {
 							float: left;
@@ -171,6 +172,47 @@ body * {
 
 						p {
 							margin: 0;
+						}
+					}
+
+					@media all and (min-width: 780px){
+						margin-left: -15px;
+						margin-right: -15px;
+
+						li {
+							margin-bottom: 20px;
+							width: 33.333%;
+							float: left;
+							@include box-sizing;
+
+							i {
+								display: none;
+							}
+
+							img {
+								width: 100%;
+								@include grayscale(100);
+								@include animacao_slow;
+
+								&:hover {
+									@include grayscale(0);
+								}
+							}
+
+							h3 {
+								text-transform: none;
+								font-weight: $regular;
+								font-size: 1.225rem;
+							}
+
+							h3, p {
+								padding-left: 0;
+							}
+
+							a {
+								display: inline-block;
+								margin-top: 10px;
+							}
 						}
 					}
 				}
@@ -262,6 +304,10 @@ body * {
 					}
 				}
 			}
+		}
+
+		.list-tecnico {
+			margin-top: 30px;	
 		}
 
 		&.form {

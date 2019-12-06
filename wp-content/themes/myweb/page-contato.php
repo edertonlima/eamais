@@ -9,13 +9,120 @@
 				
 				<div class="row">
 					<div class="col-12">
-						<div class="img-single">
-							<a href="<?php echo $imagem[0]; ?>" class="galeria_fotos" data-fancybox="projeto_galeria">
-								<img src="<?php echo $imagem[0]; ?>">
-							</a>
-						</div>
-					</div>
 
+						<?php if($imagem[0]){ ?>
+							<div class="img-single">
+								<a href="<?php echo $imagem[0]; ?>" class="galeria_fotos" data-fancybox="projeto_galeria">
+									<img src="<?php echo $imagem[0]; ?>">
+								</a>
+							</div>					
+						<?php } ?>
+
+						<div class="content content-page <?php if($imagem[0]){ echo 'margin-top-60'; } ?>">
+							<?php if( have_rows('conteudo') ):
+									while( have_rows('conteudo') ): the_row(); ?>
+
+										<?php if( get_row_layout() == 'imagem' ): ?>
+											<div class="item-conteudo img-single">
+												<a href="<?php the_sub_field('imagem_conteudo'); ?>" class="galeria_fotos" data-fancybox="projeto_galeria">
+													<img src="<?php the_sub_field('imagem_conteudo'); ?>">
+												</a>
+											</div>
+											
+
+										<?php elseif( get_row_layout() == 'texto' ): ?>
+											<div class="item-conteudo <?php the_sub_field('align_texto_conteudo'); ?>">
+												<?php the_sub_field('texto_conteudo'); ?>
+											</div>
+
+
+										<?php elseif( get_row_layout() == 'texto_titulo' ): ?>
+											<div class="item-conteudo <?php the_sub_field('align_texto_titulo_conteudo'); ?>">
+
+												<?php if(get_sub_field('tit_texto_titulo_conteudo')){ ?>
+													<h2><?php the_sub_field('tit_texto_titulo_conteudo'); ?></h2>
+												<?php }
+												
+												the_sub_field('txt_texto_titulo_conteudo'); ?>
+											</div>
+
+
+										<?php elseif( get_row_layout() == 'texto_titulo_imagem' ): ?>
+											<div class="item-conteudo cont-imagem <?php the_sub_field('align_texto_titulo_imagem_conteudo'); ?>">
+
+												<?php if(get_sub_field('tit_texto_titulo_imagem_conteudo')){ ?>
+													<h2><?php the_sub_field('tit_texto_titulo_imagem_conteudo'); ?></h2>
+												<?php } ?>
+												
+												<div class="cont-txt-img">
+													<img src="<?php the_sub_field('img_texto_titulo_imagem_conteudo'); ?>">
+													<?php the_sub_field('txt_texto_titulo_imagem_conteudo'); ?>
+												</div>
+											</div>
+
+
+										<?php elseif( get_row_layout() == 'listagem' ): ?>
+											<div class="item-conteudo cont-list">
+												<?php
+
+												if( have_rows('listagem_conteudo') ): ?>
+													<ul class="listagem_conteudo">
+														<?php while ( have_rows('listagem_conteudo') ) : the_row(); ?>
+
+															<li>
+
+																<i class="fas fa-plus"></i>
+																<img src="<?php the_sub_field('imagem'); ?>">
+																<h3><?php the_sub_field('titulo'); ?></h3> 
+																
+																<p><?php the_sub_field('texto'); ?></p>
+
+																<a href="mailto:<?php the_sub_field('email'); ?>"><?php the_sub_field('email'); ?></a>
+
+															</li>
+
+														<?php endwhile; ?>
+													</ul>
+												<?php endif;
+
+												?>
+
+											</div>
+
+										<?php endif; ?>
+
+									<?php endwhile;
+							endif; ?>
+
+
+							<div class="item-conteudo">
+								<a data-fancybox data-touch="false" href="#mapa" class="link-contato">
+									<h5>Google Maps</h5>
+								</a>
+								<div style="display: none;" id="mapa">
+									<?php the_field('maps_contato','options'); ?>
+								</div>
+							</div>
+
+							<div class="item-conteudo">
+								<a href="mailto:eamais@eamais.net" class="link-contato">
+									<h5><?php the_field('email_contato','options'); ?></h5>
+								</a>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<?php /*
+		<section class="box-content page-contato">
+			<div class="container">
+
+				<div class="row">
 					<div class="col-m-1 col-5">
 						<h2 class="left">ENDEREÇO</h2>
 						<p class="info-contato">Dom Jaime Câmera 77, 9 andar<br>
@@ -34,10 +141,19 @@
 							<a href="mailto:adm@eamais.net" title="mailto:adm@eamais.net">mailto:adm@eamais.net</a>
 						</div>
 					</div>
+				</div>
 
-					<div class="col-m-3 col-6">
-						<h2 class="center uppercase sub-title"><?php the_title(); ?></h2>
-						<p class="center sub-title">Para mais informações, entre <br> em contato</p>
+			</div>
+		</section>
+		*/ ?>
+
+		<section class="box-content page-contato">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-m-4 col-4">
+						<?php /*<h2 class="center uppercase sub-title"><?php the_title(); ?></h2>*/ ?>
+						<p class="sub-title form-sub-title">Para mais informações, entre <br> em contato</p>
 
 						<form action="javascript:" method="post">
 							<fieldset>
@@ -70,16 +186,39 @@
 
 <?php get_footer(); ?>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-
-
-	});
-</script>
-
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/maskedinput.js"></script>
 <script type="text/javascript">
 	jQuery(function(jQuery){
 	   jQuery("#telefone").mask("(99) 9999-9999?9");
+	});
+</script>
+
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/fancybox/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$('[data-fancybox]').fancybox({
+
+			iframe : {
+		        css : {
+		            width : '600px'
+		        }
+			},
+			infobar: false, // quantidade de slides
+			smallBtn: false, // close individual em cada foto
+			toolbar: true, // botões padrões
+			buttons: [
+				//"zoom",
+				//"share",
+				//"slideShow",
+				//"fullScreen",
+				//"download",
+				//"thumbs",
+				"close"
+			],
+
+		})
+
 	});
 </script>

@@ -1,5 +1,5 @@
 
-	<footer class="footer <?php if(is_page('contato')){ echo 'footer-page-contato'; } ?>">
+	<footer class="footer <?php //if(is_page('contato')){ echo 'footer-page-contato'; } ?>">
 		<div class="container">
 
 			<?php
@@ -12,7 +12,7 @@
 						<?php // loop through the rows of data
 						while ( have_rows('redes_sociais','options') ) : the_row(); ?>
 
-							<a href="<?php the_sub_field('url','option'); ?>" title="">
+							<a href="<?php the_sub_field('url','option'); ?>" title="" target="_blank">
 								<?php the_sub_field('icone','option'); ?>
 							</a>
 
@@ -51,15 +51,15 @@
 		});
 
 
-		/*$(document).ready(function(){	
+		$(document).ready(function(){	
 
 			$('.menu-mobile').click(function(){
 				if($(this).hasClass('ativo')){
-					$('.nav-principal ul').css('top','-100vh');
+					//$('.nav-principal ul').css('top','-100vh');
 					$(this).removeClass('ativo');
 					$('.header').removeClass('ativo');
 				}else{
-					$('.nav-principal ul').css('top','0px');
+					//$('.nav-principal ul').css('top','0px');
 					$(this).addClass('ativo');
 					$('.header').addClass('ativo');
 				}
@@ -67,7 +67,7 @@
 
 		});
 
-*/
+
 		$(window).scroll(function(){
 			scroll_body = $(window).scrollTop();
 			if(scroll_body > 200){

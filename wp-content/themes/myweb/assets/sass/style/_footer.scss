@@ -98,7 +98,7 @@
 	bottom: 95px;
 	right: 95px;
 	cursor: pointer;
-	z-index: 999;
+	z-index: 9999;
 	@include animacao_hard_slow;
 
 	&.on {

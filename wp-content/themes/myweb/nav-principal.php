@@ -9,7 +9,7 @@
 				<a href="<?php echo get_permalink(get_page_by_path('bim')); ?>" title="<?php the_field('titulo_menu',get_page_by_path('bim')); ?>"><?php the_field('titulo_menu',get_page_by_path('bim')); ?></a>
 			</li>
 
-			<li class="<?php if ( (is_post_type_archive('projetos')) or (is_tax('categoria_projetos')) or (is_singular('projetos')) ) : echo 'ativo'; endif ?>">
+			<li class="<?php if ( (is_post_type_archive('news')) or (is_tax('news')) or (is_singular('news')) ) : echo 'ativo'; endif ?>">
 				<a href="<?php echo get_permalink(get_page_by_path('news')); ?>" title="<?php the_field('titulo_menu',get_page_by_path('news')); ?>"><?php the_field('titulo_menu',get_page_by_path('news')); ?></a>
 			</li>
 
@@ -21,9 +21,9 @@
 				<a href="<?php echo get_permalink(get_page_by_path('contato')); ?>" title="<?php the_field('titulo_menu',get_page_by_path('contato')); ?>"><?php the_field('titulo_menu',get_page_by_path('contato')); ?></a>
 			</li>
 		</ul>
-
-		<a href="javascript:" class="menu-mobile">
-			<i class="fas fa-bars"></i>
-			<i class="fas fa-times"></i>
-		</a>
 </nav>
+
+<a href="javascript:" class="menu-mobile">
+	<i class="fas fa-bars"></i>
+	<i class="fas fa-times"></i>
+</a>

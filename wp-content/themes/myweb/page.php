@@ -4,18 +4,21 @@
 
 		$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'list-receita-produto' ); ?>
 
-		<section class="box-content">
+		<section class="box-content first-box">
 			<div class="container">
 				
 				<div class="row">
 					<div class="col-12">
-						<div class="img-single">
-							<a href="<?php echo $imagem[0]; ?>" class="galeria_fotos" data-fancybox="projeto_galeria">
-								<img src="<?php echo $imagem[0]; ?>">
-							</a>
-						</div>					
 
-						<div class="content content-page">
+						<?php if($imagem[0]){ ?>
+							<div class="img-single">
+								<a href="<?php echo $imagem[0]; ?>" class="galeria_fotos" data-fancybox="projeto_galeria">
+									<img src="<?php echo $imagem[0]; ?>">
+								</a>
+							</div>					
+						<?php } ?>
+
+						<div class="content content-page <?php if($imagem[0]){ echo 'margin-top-60'; } ?>">
 							<?php if( have_rows('conteudo') ):
 									while( have_rows('conteudo') ): the_row(); ?>
 
@@ -59,7 +62,7 @@
 
 
 										<?php elseif( get_row_layout() == 'listagem' ): ?>
-											<div class="item-conteudo cont-list <?php the_sub_field('align_listagem_conteudo'); ?>">
+											<div class="item-conteudo cont-list">
 												<?php
 
 												if( have_rows('listagem_conteudo') ): ?>
@@ -69,9 +72,12 @@
 															<li>
 
 																<i class="fas fa-plus"></i>
+																<img src="<?php the_sub_field('imagem'); ?>">
 																<h3><?php the_sub_field('titulo'); ?></h3> 
 																
 																<p><?php the_sub_field('texto'); ?></p>
+
+																<a href="mailto:<?php the_sub_field('email'); ?>"><?php the_sub_field('email'); ?></a>
 
 															</li>
 

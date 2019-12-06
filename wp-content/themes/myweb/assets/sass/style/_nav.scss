@@ -41,6 +41,7 @@
 		padding-top: 30px;
 		float: right;
 		//@include clear;
+		@include animacao_slow;
 
 		ul {
 
@@ -158,50 +159,6 @@
 			}
 		}
 	}
-
-	&.nav-footer {
-		margin-top: 50px; 
-
-		li {
-			display: block;
-			text-align: left;
-			margin: 0 0 15px;
-			padding: 0;
-			line-height: normal;
-
-			a {
-				padding: 0;
-				font-weight: $bold;
-				font-size: 1.125rem;
-				line-height: 1.125rem+.25;
-				color: #000000;
-
-				&:hover, &.ativo {
-					color: $cor1;
-				}
-			}
-
-			ul {
-				display: inline-block;
-				vertical-align: top;
-				padding-left: 10px;
-
-				li {
-					margin: 0px 0 10px 0;
-
-					&:last-child {
-						margin-bottom: 0;
-					}
-
-					a {
-						font-weight: $regular;
-						font-size: 1rem;
-						line-height: 1rem+.25;
-					}
-				}
-			}
-		}
-	}
 }
 
 .home {
@@ -219,46 +176,87 @@
 	}
 }
 
+.header {
+	&.ativo {
+		.nav {
+			top: 0;
+		}
+	}
+}
+
 
 
 // MENU MOBILE
-.nav {
-	.menu-mobile {
+.menu-mobile {
+	display: none;
+	text-decoration: none;
+	z-index: 9999;
+	top: 30px;
+	right: 30px;
+	position: absolute;
+	@include animacao-off;
+
+	i, &:visited i {
+		font-size: 3rem;
+		color: $cor-txt;
 		display: none;
-		text-decoration: none;
-		z-index: 9999;
-		top: 13px;
-		right: 15px;
 		position: absolute;
-		@include animacao-off;
+		top: 0;
+		right: 0px;
+
+		&.fa-times {
+			right: 4px;
+		}
+	}
+
+	&:hover {
+		i {
+			color: $cor-txt-bold;
+		}
+	}
+
+	&.ativo {		
+		i {
+			color: $cor-txt;
+
+			&.fa-bars {
+				display: none;
+			}	
+
+			&.fa-times {
+				display: block;
+			}	
+
+			&:hover {
+				color: $cor-txt-bold;
+			}
+		}
+	}
+}
+
+.home {
+	.menu-mobile {
+		top: 45px;
 
 		i {
-			font-size: 2.125rem;
 			color: #ffffff;
-			display: none;
 		}
 
 		&:hover {
 			i {
-				color: $cor2;
+				color: $cor-txt;
 			}
 		}
 
 		&.ativo {
-			position: fixed;
-			top: 84px;
-			right: 40px;
-			
 			i {
-				//color: $cor2;
+				color: $cor-txt;
+			}
 
-				&.fa-bars {
-					display: none;
-				}	
-
-				&.fa-times {
-					display: block;
-				}	
+			&:hover {
+				i {
+					color: $cor-txt-bold;
+				}
 			}
 		}
 	}

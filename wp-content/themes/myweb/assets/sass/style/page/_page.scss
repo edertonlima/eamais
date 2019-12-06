@@ -8,3 +8,23 @@
 		max-width: 100%;
 	}
 }
+
+#mapa iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.link-contato {
+	display: inline-block;
+}
+
+.page-contato{
+	.fancybox-content {
+		width: 100%;
+		height: 100%;
+	}
+
+	.fancybox-container .fancybox-inner .fancybox-infobar {
+		display: none;
+	}
+}

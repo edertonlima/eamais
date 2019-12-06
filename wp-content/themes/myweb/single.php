@@ -5,7 +5,7 @@
 		$current_category = wp_get_post_terms( $post->ID, 'category' )[0]; 
 		$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'list-receita-produto' ); ?>
 
-		<section class="box-content">
+		<section class="box-content first-box">
 			<div class="container">
 				
 				<div class="row">
@@ -62,7 +62,7 @@
 
 
 										<?php elseif( get_row_layout() == 'listagem' ): ?>
-											<div class="item-conteudo cont-list <?php the_sub_field('align_listagem_conteudo'); ?>">
+											<div class="item-conteudo cont-list">
 												<?php
 
 												if( have_rows('listagem_conteudo') ): ?>
@@ -72,9 +72,12 @@
 															<li>
 
 																<i class="fas fa-plus"></i>
+																<img src="<?php the_sub_field('imagem'); ?>">
 																<h3><?php the_sub_field('titulo'); ?></h3> 
 																
 																<p><?php the_sub_field('texto'); ?></p>
+
+																<a href="mailto:<?php the_sub_field('email'); ?>"><?php the_sub_field('email'); ?></a>
 
 															</li>
 
@@ -86,16 +89,88 @@
 
 											</div>
 
-										<?php endif; ?>
+
+										<?php elseif( get_row_layout() == 'galeria' ): /* ?>
+											<div class="item-conteudo cont-list"> aaaaa
+
+
+
+											<div class="item-conteudo img-single">
+												<a href="<?php the_sub_field('imagem_conteudo'); ?>" class="galeria_fotos" data-fancybox="projeto_galeria">
+													<img src="<?php the_sub_field('imagem_conteudo'); ?>">
+												</a>
+											</div>
+
+<?php /*
+$images = get_field('galeria_conteudo');
+if( $images ): ?>
+    <ul>
+        <?php foreach( $images as $image ): ?>
+            <li>
+                <a href="<?php echo esc_url($image['url']); ?>">
+                     <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+
+											</div>
+
+										<?php */ endif; ?>
 
 									<?php endwhile;
 							endif; ?>
 
-						</div>
+							<ul class="list-tecnico">
+
+								<?php if( have_rows('itens_info_projetos') ): 
+									if(is_singular('post')): 
+
+										while ( have_rows('itens_info_projetos') ) : the_row(); ?>
+
+											<li>
+												<span><?php the_sub_field('titulo'); ?></span>
+												<?php the_sub_field('descricao'); ?>
+											</li>
+
+										<?php endwhile;
+
+									endif;
+								endif; ?>
+
+							</ul>
+						</div>	
 
 					</div>
 				</div>
 
+			</div>
+		</section>
+
+		<section class="box-content">
+			<div class="container">
+				<div class="list-categoria">
+
+					<?php 
+						$current_category = wp_get_post_terms( $post->ID, 'category' );
+						$count_cat = count($current_category);
+
+						foreach ($current_category as $key => $categoria) { ?>
+
+							<a href="<?php echo get_term_link($categoria->term_id); ?>" title="<?php echo $categoria->name; ?>">
+								<?php 
+									echo $categoria->name;
+									if($key < ($count_cat-1)){
+										echo ',';
+									}
+								?>
+									
+							</a>
+
+						<?php }
+					?>
+				</div>
 			</div>
 		</section>
 

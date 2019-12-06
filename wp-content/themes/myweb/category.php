@@ -3,8 +3,12 @@
 <section class="box-content"> 
 	<div class="container">
 		<?php include 'nav-categoria.php'; ?>
+	</div>
+</section>
+
+	<div class="container">
 		
-		<div class="grid">
+		<div class="grid clean">
 
 				<?php
 					while ( have_posts() ) : the_post();
@@ -19,7 +23,7 @@
 									<div class="cont-mask">
 										<img src="<?php echo $imagem[0]; ?>" alt="<?php the_title(); ?>">
 										<div class="mask-hover">
-											<h2><?php the_title(); ?><br><?php echo get_the_date('Y'); ?></h2>
+											<h2><?php the_title(); ?> <?php echo get_the_date('Y'); ?></h2>
 											<i class="fas fa-plus"></i>
 											<h2 class="categoria"><?php echo $categoria->name; ?></h2>
 										</div>
