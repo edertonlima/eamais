@@ -61,6 +61,10 @@ add_filter( 'body_class', function( $classes ) {
 		$page_class = array( 'det-projetos' );    	
     }
 
+    if(is_singular('news')){
+		$page_class = array( 'det-news' );    	
+    }
+
     return array_merge( $classes, $page_class );
 } );
 

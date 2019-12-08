@@ -160,18 +160,22 @@ body * {
 							color: $cor-txt-bold;
 						}
 
-						h3, p {
+						h3, p, a {
 							display: block;
 							padding-left: 75px;
 						}
 
 						h3 {
 							text-align: left;
-							padding-top: 13px;
+							padding-top: 5px;
 						}
 
 						p {
 							margin: 0;
+						}
+
+						a {
+							margin-top: 5px;
 						}
 					}
 
@@ -205,7 +209,7 @@ body * {
 								font-size: 1.225rem;
 							}
 
-							h3, p {
+							h3, p, a {
 								padding-left: 0;
 							}
 

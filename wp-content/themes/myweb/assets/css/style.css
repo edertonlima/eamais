@@ -4818,14 +4818,16 @@ body * {
             float: left;
             font-size: 4rem;
             color: #4a4a4a; }
-          .box-content .content .item-conteudo.cont-list .listagem_conteudo li h3, .box-content .content .item-conteudo.cont-list .listagem_conteudo li p {
+          .box-content .content .item-conteudo.cont-list .listagem_conteudo li h3, .box-content .content .item-conteudo.cont-list .listagem_conteudo li p, .box-content .content .item-conteudo.cont-list .listagem_conteudo li a {
             display: block;
             padding-left: 75px; }
           .box-content .content .item-conteudo.cont-list .listagem_conteudo li h3 {
             text-align: left;
-            padding-top: 13px; }
+            padding-top: 5px; }
           .box-content .content .item-conteudo.cont-list .listagem_conteudo li p {
             margin: 0; }
+          .box-content .content .item-conteudo.cont-list .listagem_conteudo li a {
+            margin-top: 5px; }
         @media all and (min-width: 780px) {
           .box-content .content .item-conteudo.cont-list .listagem_conteudo {
             margin-left: -15px;
@@ -4855,7 +4857,7 @@ body * {
                 text-transform: none;
                 font-weight: 400;
                 font-size: 1.225rem; }
-              .box-content .content .item-conteudo.cont-list .listagem_conteudo li h3, .box-content .content .item-conteudo.cont-list .listagem_conteudo li p {
+              .box-content .content .item-conteudo.cont-list .listagem_conteudo li h3, .box-content .content .item-conteudo.cont-list .listagem_conteudo li p, .box-content .content .item-conteudo.cont-list .listagem_conteudo li a {
                 padding-left: 0; }
               .box-content .content .item-conteudo.cont-list .listagem_conteudo li a {
                 display: inline-block;
@@ -6580,11 +6582,12 @@ input::-webkit-input-placeholder {
     display: block; }
     .menu-mobile i.fa-bars {
       display: block; }
-  .grid {
+  .grid:not(.news) {
     max-width: 480px;
     margin: 0 auto; }
-    .grid .grid-item {
-      width: 100%; }
+    .grid:not(.news) .grid-item {
+      width: 100%;
+      margin: 0; }
   .footer {
     padding-right: 0;
     padding-left: 0;
@@ -6600,11 +6603,11 @@ input::-webkit-input-placeholder {
       line-height: 1.225rem; }
     .footer #gotop {
       right: 20px; }
-  .det-projetos .row {
+  .det-projetos .row, .det-news .row {
     margin: 0; }
-    .det-projetos .row [class*="col-m-"] {
+    .det-projetos .row [class*="col-m-"], .det-news .row [class*="col-m-"] {
       margin: 0; }
-    .det-projetos .row [class*="col-"] {
+    .det-projetos .row [class*="col-"], .det-news .row [class*="col-"] {
       padding: 0;
       width: 100%; }
   .box-content .container {
@@ -6624,8 +6627,6 @@ input::-webkit-input-placeholder {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
-  .listagem_conteudo li img {
-    display: none; }
   h2 {
     margin: 10px 0;
     font-size: 1.5rem; }
@@ -6638,6 +6639,20 @@ input::-webkit-input-placeholder {
     font-weight: 300;
     margin-bottom: 10px; } }
 
+@media all and (max-width: 779px) {
+  .listagem_conteudo {
+    padding: 20px; }
+    .listagem_conteudo li img {
+      display: none; }
+  .grid.news {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto; }
+    .grid.news .grid-item {
+      width: 100%;
+      padding: 0;
+      margin: 0px; } }
+
 @media all and (max-width: 450px) {
   .container {
     padding: 0 20px; }
@@ -6648,7 +6663,17 @@ input::-webkit-input-placeholder {
     padding-top: 50px;
     padding-bottom: 50px; }
   .menu-mobile {
-    top: 24px; } }
+    top: 24px; }
+  .box-content .content .item-conteudo.cont-list .listagem_conteudo li {
+    padding: 0; }
+    .box-content .content .item-conteudo.cont-list .listagem_conteudo li h3, .box-content .content .item-conteudo.cont-list .listagem_conteudo li p, .box-content .content .item-conteudo.cont-list .listagem_conteudo li a {
+      padding-left: 60px; }
+    .box-content .content .item-conteudo.cont-list .listagem_conteudo li i {
+      font-size: 2.5rem; }
+    .box-content .content .item-conteudo.cont-list .listagem_conteudo li h3 {
+      padding-top: 7px;
+      font-size: 1.25rem;
+      line-height: 1.5rem; } }
 
 @media all and (max-width: 350px) {
   h1 {
