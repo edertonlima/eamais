@@ -6,9 +6,9 @@
 	</div>
 </section>
 
-	<div class="container">
-		
-		<div class="grid clean">
+<section class="box-content no-padding-top"> 
+	<div class="container">		
+		<div class="grid clean" style="opacity: 0;">
 
 				<?php
 					while ( have_posts() ) : the_post();
@@ -51,9 +51,11 @@
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/masonry/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript">
+	var $grid;
+	//$(window).load(function(){
 	$(document).ready(function(){
 		
-		var $grid = $('.grid').masonry({
+		/*$grid = $('.grid').masonry({
 			itemSelector: '.grid-item',
 			columnWidth: 80,
 			//fitWidth: true,
@@ -62,11 +64,29 @@
 			originTop: false,
 			originLeft: true,
 			percentPosition: true
-		})
+		});*/
 
-		$grid.imagesLoaded().progress( function() {
+		setTimeout(function(){ 
+			//alert("Hello");
+				$grid = $('.grid').masonry({
+					itemSelector: '.grid-item',
+					columnWidth: 80,
+					//fitWidth: true,
+					//gutter: 10
+					horizontalOrder: true,
+					originTop: false,
+					originLeft: true,
+					percentPosition: true
+				});
+
+				$('.grid').css('opacity',1);
+		}, 500);
+
+		/*$grid.imagesLoaded().progress( function() {
 			$grid.masonry('layout');
-		});
+		});*/
+
+		//$grid.masonry('reloadItems');
 
 	});
 </script>

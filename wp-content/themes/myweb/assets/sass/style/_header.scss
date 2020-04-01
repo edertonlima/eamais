@@ -1,8 +1,10 @@
 .header {
 	padding: 0 30px;
 	width: 100%;
-	position: relative;
+	position: fixed;
+	top: 0;
 	z-index: 999;
+	background-color: #ffffff;
 	@include animacao;
 	@include box-sizing;
 
@@ -14,6 +16,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
+		
 
 		&:before, &:after {
 			height: 50px;
@@ -21,10 +24,11 @@
 
 		&:not(.ativo){
 			h1 {
-				width: 90px;
+				//width: 90px;
 				height: auto;
-				top: -20px;
-				left: -15px;
+				//top: -20px;
+				//left: -15px;
+				//padding: 37px 5px !important;
 			}
 		}
 

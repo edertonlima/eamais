@@ -28,7 +28,7 @@
 
 			?>
 
-			<p class="copy">Todos os direitos reservados <?php echo date('Y'); ?></p>
+			<p class="copy">Todos os direitos reservados <?php echo date('Y'); ?>.</p>
 
 		</div>
 
@@ -72,12 +72,12 @@
 			scroll_body = $(window).scrollTop();
 			if(scroll_body > 200){
 				$('#gotop').addClass('on');
-				//$('body').addClass('scroll_body');
-				//$('.header').addClass('scroll_menu');
+				$('body').addClass('scroll_body');
+				$('.header').addClass('scroll_menu');
 			}else{
 				$('#gotop').removeClass('on');
-				//$('body').removeClass('scroll_body');
-				//$('.header').removeClass('scroll_menu');
+				$('body').removeClass('scroll_body');
+				$('.header').removeClass('scroll_menu');
 			}
 		});
 	</script>

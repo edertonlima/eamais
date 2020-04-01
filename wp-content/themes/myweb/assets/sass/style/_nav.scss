@@ -8,7 +8,7 @@
 
 		li {
 			display: inline-block;
-			padding: 0px 7.5px;
+			padding: 0px 5px;
 			position: relative;
 			@include animacao();
 
@@ -38,7 +38,7 @@
 	&.nav-principal {
 		padding-top: 25px;
 		position: relative;
-		padding-top: 30px;
+		padding-top: 53px;
 		float: right;
 		//@include clear;
 		@include animacao_slow;
@@ -47,7 +47,7 @@
 
 			li {
 				a {
-					font-size:1.5rem;
+					font-size:1.125rem;
 				}
 
 				&.ativo, &:hover {
@@ -164,7 +164,7 @@
 .home {
 	.nav {
 		&.nav-principal {
-			padding-top: 60px;
+			padding-top: 55px;
 
 			li {
 				a {
@@ -173,6 +173,12 @@
 				}
 			}
 		}
+	}
+}
+
+.blog {
+	.nav-principal {
+		padding-right: 57px;
 	}
 }
 
@@ -194,7 +200,7 @@
 	top: 30px;
 	right: 30px;
 	position: absolute;
-	@include animacao-off;
+	@include animacao;
 
 	i, &:visited i {
 		font-size: 3rem;
@@ -236,7 +242,7 @@
 
 .home {
 	.menu-mobile {
-		top: 45px;
+		top: 60px;
 
 		i {
 			color: #ffffff;
@@ -273,7 +279,8 @@
 
 			&.nav-principal {
 				height: 50px;
-				margin-top: 20px;
+				//padding-top: 39px;
+				//margin-top: 20px;
 
 				&:before {
 					height: 50px;
@@ -284,7 +291,8 @@
 
 				ul {
 					li {
-						padding: 14px 5px 13px;
+
+						//padding: 14px 5px 13px;
 					}
 				}
 			}

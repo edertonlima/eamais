@@ -2,12 +2,12 @@
 <html lang="pt-br">
 <head>
 
-<?php /* 
+<?php 
 	$titulo_princ = get_field('titulo', 'option');
 	$descricao_princ = get_field('descricao', 'option');
-	$imagem_princ = get_field('imagem_principal', 'option');
+	//$imagem_princ = get_field('imagem_principal', 'option');
 	$url = get_home_url();
-	$imgPage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), '' );
+	/*$imgPage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), '' );
 
 	if(is_tax()){
 		$terms = get_queried_object();
@@ -33,13 +33,13 @@
 		}			
 		$url = get_the_permalink();
 	}
-
+*/
 	if($titulo == ''){
 		$titulo = $titulo_princ;
 	}else{
 		$titulo = $titulo.' - '.$titulo_princ;
 	}
-	
+/*	
 	if($descricao == ''){
 		$descricao = $descricao_princ;
 	}
