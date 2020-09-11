@@ -155,24 +155,24 @@
 						<?php /*<h2 class="center uppercase sub-title"><?php the_title(); ?></h2>*/ ?>
 						<p class="sub-title form-sub-title">Para mais informações, entre <br> em contato</p>
 
-						<form action="javascript:" method="post">
+						<form action="javascript:" method="post" id="form-contato">
 							<fieldset>
-								<input type="text" name="nome" placeholder="Nome">
+								<input type="text" id="nome" name="nome" placeholder="Nome *">
 							</fieldset>
 							<fieldset>
-								<input type="text" name="email" placeholder="E-mail">
+								<input type="text" id="email" name="email" placeholder="E-mail *">
 							</fieldset>
 							<fieldset>
-								<input type="text" name="telefone" id="telefone" placeholder="Telefone">
+								<input type="text" name="telefone" id="telefone" placeholder="Telefone *">
 							</fieldset>
 							<fieldset>
-								<input type="text" name="assunto" placeholder="Assunto">
+								<input type="text" id="assunto" name="assunto" placeholder="Assunto *">
 							</fieldset>
 							<fieldset>
-								<textarea name="mensagem" placeholder="Mensagem"></textarea>
+								<textarea name="mensagem" id="mensagem" placeholder="Mensagem *"></textarea>
 							</fieldset>
 							<fieldset>
-								<p class="msg-form right"></p><br>
+								<p class="msg-form right" style="display: block; width: 100%;"></p>
 								<button class="enviar">Enviar</button>
 							</fieldset>
 						</form>
@@ -185,13 +185,6 @@
 	<?php endwhile; ?>
 
 <?php get_footer(); ?>
-
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/maskedinput.js"></script>
-<script type="text/javascript">
-	jQuery(function(jQuery){
-	   jQuery("#telefone").mask("(99) 9999-9999?9");
-	});
-</script>
 
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/fancybox/jquery.fancybox.min.js"></script>
 
@@ -220,5 +213,69 @@
 
 		})
 
+	});
+
+
+
+
+	$(".enviar").click(function(){
+		$('.enviar').html('Enviando').prop( "disabled", true );
+		$('.msg-form').removeClass('erro ok').html('');
+		
+		nome = $('#nome').val();
+		email = $('#email').val();
+		telefone = $('#telefone').val();
+		assunto = $('#assunto').val();
+		mensagem = $('#mensagem').val();
+
+		para = '<?php the_field('email_contato', 'option'); ?>';
+		nome_site = '<?php bloginfo('name'); ?>';
+
+		if(nome == ''){
+			$('#nome').parent().addClass('erro');
+		}
+
+		if(email == ''){
+			$('#email').parent().addClass('erro');
+		}
+
+		if(assunto == ''){
+			$('#assunto').parent().addClass('erro');
+		}
+
+		if(telefone == ''){
+			$('#telefone').parent().addClass('erro');
+		}
+
+		if(mensagem == ''){
+			$('#mensagem').addClass('erro');
+		}
+
+		if((nome == '') || (email == '') || (telefone == '') || (assunto == '') || (mensagem == '')){
+			$('.msg-form').html('Todos os campos são obrigatórios!');
+
+			$('.enviar').html('Enviar').prop( "disabled", false );
+		}else{
+			$.getJSON("<?php echo get_template_directory_uri(); ?>/mail.php", { nome:nome, email:email, telefone:telefone, mensagem:mensagem, assunto:assunto, para:para, nome_site:nome_site }, function(result){		
+				if(result=='ok'){
+					resultado = 'Mensagem enviada com sucesso!<br>Em breve entraremos em contato.';
+					classe = 'ok';
+				}else{
+					resultado = result;
+					classe = 'erro';
+				}
+				$('.msg-form').addClass(classe).html(resultado);
+				$('#form-contato').trigger("reset");
+				$('.enviar').html('Enviar').prop( "disabled", false );
+			});
+		}
+	});
+</script>
+
+
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/maskedinput.js"></script>
+<script type="text/javascript">
+	$(function(jQuery){
+	   $("#telefone").mask("(99) 9999-9999?9");
 	});
 </script>
