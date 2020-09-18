@@ -232,6 +232,29 @@
 	form {
 		padding: 0 20px;
 	}
+
+	body {
+		&:not(.home){
+			.header {
+				height: 90px;
+
+				h1 {
+					height: 90px !important;
+					overflow: hidden;
+
+					img {
+						position: relative;
+						top: -20px;
+					}
+				}
+
+				.menu-mobile { 
+					//top: 18px;
+					//right: 45px;
+				}
+			}
+		}
+	}
 }
 
 
@@ -282,7 +305,9 @@
 
 	.nav {
 		&.nav-categoria {
-			display: none;
+			//display: none;
+			text-align: center;
+			padding: 0;
 		}
 	}
 
